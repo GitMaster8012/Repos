@@ -1,1 +1,4 @@
 alert("hi")
+prompt("Enter User ID of FormalLegend to continue")
+Confirm("Are you really formal?")
+window.location.href = 'window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';';

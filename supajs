@@ -1,6 +1,22 @@
 function rickroll() {
     alert("hi");
-    prompt("Enter User ID of FormalLegend to continue");
-    confirm("Are you really formal?") && (window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0");
+
+    // Prompt the user to enter the User ID
+    var userId = prompt("Enter User ID of FormalLegend to continue");
+
+    // Check if the prompt value is correct
+    if (userId === "6480159806843") {
+        // If the prompt value is correct, continue with the confirmation dialog
+        var isFormal = confirm("Are you directed here by X-king?");
+        
+        // If the user confirms and is really formal, redirect to the Rickroll link
+        if (isFormal) {
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }
+    } else {
+        // If the prompt value is incorrect, do nothing or display an error message
+        // For simplicity, we'll just exit the function without doing anything
+        return;
+    }
 }
 rickroll()

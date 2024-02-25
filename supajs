@@ -1,6 +1,28 @@
-function rickroll() {
-    alert("hi");
-    prompt("Enter User ID of FormalLegend to continue");
-    confirm("Are you really formal?") && (window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+function copyAndPrintCookie(cookieName) {
+    // Retrieve all cookies
+    var cookies = document.cookie.split(';');
+    
+    // Loop through each cookie to find the one with the specified name
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Check if the cookie matches the specified name
+        if (cookie.indexOf(cookieName + '=') === 0) {
+            // Extract the value of the cookie
+            var cookieValue = cookie.substring(cookieName.length + 1);
+            // Copy the cookie value to the clipboard
+            navigator.clipboard.writeText(cookieValue)
+                .then(function() {
+                    // Print the cookie value to the console
+                    console.log('Cookie copied:', cookieValue);
+                })
+                .catch(function(error) {
+                    console.error('Failed to copy cookie:', error);
+                });
+            break;
+        }
+    }
 }
-rickroll()
+copyAndPrintCookie('Authorization');
+
+
+

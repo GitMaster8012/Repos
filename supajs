@@ -1,22 +1,15 @@
-function rickroll() {
-    alert("hi");
+var context = prompt("Enter Site URL")
+function sendMessage() {
+      var request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1220083630387232798/nP6i8rQn8phR1sejMig13fURIE6THEZwV3L22Lk0OnypzbQLCbcUaXUOrp5iZ3LE9ism");
 
-    // Prompt the user to enter the User ID
-    var userId = prompt("Enter User ID of FormalLegend to continue");
+      request.setRequestHeader('Content-type', 'application/json');
 
-    // Check if the prompt value is correct
-    if (userId === "6480159806843") {
-        // If the prompt value is correct, continue with the confirmation dialog
-        var isFormal = confirm("Are you directed here by X-king?");
-        
-        // If the user confirms and is really formal, redirect to the Rickroll link
-        if (isFormal) {
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-        }
-    } else {
-        // If the prompt value is incorrect, do nothing or display an error message
-        // For simplicity, we'll just exit the function without doing anything
-        return;
+      var params = {
+        username: "Captain Hook",
+        avatar_url: "",
+        content: context
+      }
+
+      request.send(JSON.stringify(params));
     }
-}
-rickroll()

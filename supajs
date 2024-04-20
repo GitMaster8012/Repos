@@ -1,15 +1,17 @@
-var context = prompt("Enter Site URL")
-function sendMessage() {
-      var request = new XMLHttpRequest();
-      request.open("POST", "https://discord.com/api/webhooks/1220083630387232798/nP6i8rQn8phR1sejMig13fURIE6THEZwV3L22Lk0OnypzbQLCbcUaXUOrp5iZ3LE9ism");
+// The URL you want to open
+const targetUrl = "https://discord.gg/bpRAAHHUwj";
 
-      request.setRequestHeader('Content-type', 'application/json');
+// Function to handle link click
+function handleClick() {
+    // Open the URL in a new tab
+    window.open(targetUrl, "_blank");
 
-      var params = {
-        username: "Captain Hook",
-        avatar_url: "",
-        content: context
-      }
+    // After one click, remove the event listener to prevent further clicks
+    document.getElementById("contentLink").removeEventListener("click", handleClick);
+}
 
-      request.send(JSON.stringify(params));
-    }
+// Example usage: create a link
+document.body.innerHTML += `<a id="contentLink" href="#">Click here for content</a>`;
+
+// Add event listener to the link
+document.getElementById("contentLink").addEventListener("click", handleClick);
